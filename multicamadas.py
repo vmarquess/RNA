@@ -28,7 +28,7 @@ def main():
 def treinamento():
     global ta, numIteracoes, q, m, n, l, W1, W2, E, Etm, bias
     peso = np.array([130, 137, 120, 139, 127, 150, 131, 142, 129, 140, 134, 136, 128])
-    ph = np.array([3, 3.9, 2.9, 4.1, 3.4, 4.0, 2.8, 4.2, 3.1, 3.8, 2.7, 4.6, 2.2])
+    ph = np.array([3.33, 3.69, 3.4, 3.75, 3.8, 4.34, 3.55, 4.2, 3.98, 4.1, 3.61, 3.95, 3.7])
     s = np.array([-1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1])
     Error_Test = np.zeros(q)
     # -1 = maça
@@ -82,7 +82,7 @@ def treinamento():
 def entradas():
     global ta, numIteracoes, q, m, n, l, W1, W2, E, Etm, bias
     peso = np.array([122, 126, 143, 147])
-    ph = np.array([2.3, 2.4, 4.4, 4.5])
+    ph = np.array([3.51, 4.25, 4.00, 3.755])
     s = np.array([-1, -1, 1, 1])
     X = np.stack((peso, ph))  # concatena os paramentros em uma matriz
 
