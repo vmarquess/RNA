@@ -2,8 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 ta = 0.01
-numIteracoes = 20  # loops
-q = 13  # numero de entradas
+numIteracoes = 30  # loops
+q = 20  # numero de entradas
 m = 2  # numeros de neuronios na camada de entrada
 n = 4  # numero de neuronios na camada oculta
 l = 1  # numero de neuronios na camada de saida
@@ -27,9 +27,9 @@ def main():
 
 def treinamento():
     global ta, numIteracoes, q, m, n, l, W1, W2, E, Etm, bias
-    peso = np.array([130, 137, 120, 139, 127, 150, 131, 142, 129, 140, 134, 136, 128])
-    ph = np.array([3.33, 3.69, 3.4, 3.75, 3.8, 4.34, 3.55, 4.2, 3.98, 4.1, 3.61, 3.95, 3.7])
-    s = np.array([-1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1])
+    peso = np.array([130, 137, 120, 139, 127, 150, 131, 142, 129, 140, 134, 136, 123, 136.625, 133.100, 149, 132.40, 146.8, 134.725, 140.200])
+    ph = np.array([3.33, 3.69, 3.4, 3.76, 3.8, 4.34, 3.55, 4.2, 3.98, 4.1, 3.61, 3.95, 3.7, 3.88, 3.45, 4.125, 3.99, 4.33, 3.66, 4.11])
+    s = np.array([-1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1])
     Error_Test = np.zeros(q)
     # -1 = maça
     # 1 = laranja
@@ -81,13 +81,13 @@ def treinamento():
 
 def entradas():
     global ta, numIteracoes, q, m, n, l, W1, W2, E, Etm, bias
-    peso = np.array([122, 126, 143, 147])
-    ph = np.array([3.51, 4.25, 4.00, 3.755])
-    s = np.array([-1, -1, 1, 1])
+    peso = np.array([122, 126, 143, 147, 121.5])
+    ph = np.array([3.51, 4.25, 4.00, 3.755, 3.389])
+    s = np.array([-1, -1, 1, 1, -1])
     X = np.stack((peso, ph))  # concatena os paramentros em uma matriz
 
-    Error_Test = np.zeros(4)
-    for j in range(4):
+    Error_Test = np.zeros(5)
+    for j in range(5):
         # bias no vetor de entrada
         Xb = np.hstack((bias, X[:, j]))
 
@@ -105,7 +105,7 @@ def entradas():
     print('\nEntradas:')
     for i in range(0, len(peso)):
         print('Peso: {p} | PH: {ph}\n'.format(p=peso[i], ph=ph[i]))
-    print('Saída esperada: Maça, Maça, Laranja, Laranja')
+    print('Saída esperada: Maça, Maça, Laranja, Laranja, Maça')
     if -1 in np.round(Error_Test) - s:
         print('A saída está errada!')
     else:
@@ -113,6 +113,5 @@ def entradas():
 
     print(Error_Test)
     print(np.round(Error_Test) - s)
-
 
 main()
